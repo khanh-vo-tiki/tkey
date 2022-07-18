@@ -1,0 +1,10 @@
+{
+  "all": true,
+  "cwd": "..",
+  "include": [
+    "service-provider-tiki/src/**",
+    "src/**"
+  ],
+  "reporter": ["html", "text", "text-summary"],
+  "report-dir": "./coverage"
+}
