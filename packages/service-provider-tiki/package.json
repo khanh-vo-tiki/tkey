@@ -1,9 +1,9 @@
 {
-  "name": "@tkey/service-provider-tiki",
-  "version": "6.1.0",
+  "name": "@khanh-vo/service-provider-tiki",
+  "version": "6.1.0-rc1",
   "description": "TKey Tiki Service Provider Module",
   "author": "Tiki Corp",
-  "homepage": "https://github.com/tkey/tkey#readme",
+  "homepage": "https://github.com/khanh-vo-tiki/tkey#readme",
   "license": "MIT",
   "main": "dist/serviceProviderTiki.cjs.js",
   "module": "dist/serviceProviderTiki.esm.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tkey/tkey.git"
+    "url": "git+https://github.com/khanh-vo-tiki/tkey.git"
   },
   "scripts": {
     "test": "cross-env MOCKED=true mocha --config ../../.mocharc.json ",
@@ -51,5 +51,11 @@
     "@types/bn.js": "^5.1.0",
     "@types/elliptic": "^6.4.14",
     "eslint": "^8.18.0"
+  },
+  "bugs": {
+    "url": "https://github.com/khanh-vo-tiki/tkey/issues"
+  },
+  "directories": {
+    "test": "test"
   }
 }

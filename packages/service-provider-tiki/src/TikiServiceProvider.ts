@@ -14,7 +14,6 @@ import { curve } from "elliptic";
 
 export interface ITikiServiceProvider extends IServiceProvider {
   hostUrl: string;
-  login(email: string): Promise<void>;
 }
 
 class TikiServiceProvider implements ITikiServiceProvider {
@@ -27,7 +26,7 @@ class TikiServiceProvider implements ITikiServiceProvider {
 
   hostUrl: string;
 
-  constructor({ enableLogging = false, postboxKey = "", hostUrl = "http://localhost:8000/sp" }: ServiceProviderArgs & { hostUrl: string }) {
+  constructor({ enableLogging = false, postboxKey = "", hostUrl = "http://localhost:9000/" }: ServiceProviderArgs & { hostUrl: string }) {
     this.enableLogging = enableLogging;
     this.postboxKey = new BN(postboxKey, "hex");
     this.serviceProviderName = "TikiServiceProvider";
@@ -39,13 +38,6 @@ class TikiServiceProvider implements ITikiServiceProvider {
     if (serviceProviderName !== "TikiServiceProvider") return undefined;
 
     return new TikiServiceProvider({ enableLogging, postboxKey, hostUrl });
-  }
-
-  async login(email = ""): Promise<void> {
-    try {
-      const { data } = await axios.post(`${this.hostUrl}/login`, { email });
-      this.postboxKey = new BN(data.postboxKey.toString(), "hex");
-    } catch (error) {}
   }
 
   async encrypt(msg: Buffer): Promise<EncryptedMessage> {
