@@ -30,7 +30,7 @@ class TikiServiceProvider implements ITikiServiceProvider {
     this.enableLogging = enableLogging;
     this.postboxKey = new BN(postboxKey, "hex");
     this.serviceProviderName = "TikiServiceProvider";
-    this.hostUrl = hostUrl;
+    this.hostUrl = hostUrl.endsWith("/") ? hostUrl.substring(0, hostUrl.length - 1) : hostUrl;
   }
 
   static fromJSON(value: StringifiedType): IServiceProvider {
